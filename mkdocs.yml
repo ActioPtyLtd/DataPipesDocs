@@ -1,0 +1,20 @@
+site_name: My Docs
+theme: 'material'
+
+markdown_extensions:
+  - codehilite
+  - admonition
+
+pages:
+    - Home: index.md
+    - Configuration:
+      - Introduction: configuration.md
+      - Tasks: tasks.md
+      - Pipelines: pipelines.md
+    - DataSets: datasets.md
+    - Expressions:
+      - Selection: selection.md
+      - Operators: operators.md
+      - Functions: functions.md
+      - Conditionals: conditionals.md
+    - Templates: templates.md
