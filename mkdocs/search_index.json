@@ -1,0 +1,184 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Welcome to Data Pipes", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#welcome-to-data-pipes", 
+            "text": "", 
+            "title": "Welcome to Data Pipes"
+        }, 
+        {
+            "location": "/configuration/", 
+            "text": "Configuration\n\n\nAll datapipe scripts are persisted in the \nHOCON\n format.\n\n\nOverview\n\n\nThe scripts are structured into multiple blocks, namely schema, tasks, pipelines, services and startup.\n\n\nscript {\n  schema { ... }\n  tasks { ... }\n  pipelines { ... }\n  services { ... }\n  startup { ... }\n}\n\n\n\n\n\nPipelines\n\n\nPipes", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/configuration/#configuration", 
+            "text": "All datapipe scripts are persisted in the  HOCON  format.", 
+            "title": "Configuration"
+        }, 
+        {
+            "location": "/configuration/#overview", 
+            "text": "The scripts are structured into multiple blocks, namely schema, tasks, pipelines, services and startup.  script {\n  schema { ... }\n  tasks { ... }\n  pipelines { ... }\n  services { ... }\n  startup { ... }\n}", 
+            "title": "Overview"
+        }, 
+        {
+            "location": "/configuration/#pipelines", 
+            "text": "", 
+            "title": "Pipelines"
+        }, 
+        {
+            "location": "/configuration/#pipes", 
+            "text": "", 
+            "title": "Pipes"
+        }, 
+        {
+            "location": "/tasks/", 
+            "text": "Tasks\n\n\nTasks perform some operation, usually with a side-effect, on an incoming dataset to produce an outgoing dataset. Tasks at a high level can be of either extract, transform or load type.\nMore specifically the following tasks are supported:\n\n\n\n\nExtract\n - Extracts data from a data source\n\n\nTransform Term\n - Transforms the data source using expressions\n\n\nData Source Find\n - Finds data in the data source matching a criteria\n\n\nData Source Join\n - Joins the incoming data to data from the data source using matching compound keys\n\n\nData Source Update\n - Executes either create or update commands to the datasource depending on matching compound keys\n\n\nLoad\n - Executes commands to the datasource\n\n\nDump\n - Displays the incoming dataset on the console\n\n\nFile Dump\n - Persists the incoming dataset to disk\n\n\n\n\nA typical extraction task is defined as follows:\n\n\nread_my_api {\n  type = \nextract\n\n  dataSource = \n${\nmy_datasource\n}\n\n  dataSource {\n    query {\n      read {\n        uri = \n${\nmy_datasource\n.\nbase_uri\n}\n/v1/users\n\n      }\n    }\n  }\n}\n\n\n\n\n\n\n\nNote\n\n\nThe type field within the task matches one of the predefined task types.\nAlso notice the data source details can be specified outside of the task so that it can be reused.", 
+            "title": "Tasks"
+        }, 
+        {
+            "location": "/tasks/#tasks", 
+            "text": "Tasks perform some operation, usually with a side-effect, on an incoming dataset to produce an outgoing dataset. Tasks at a high level can be of either extract, transform or load type.\nMore specifically the following tasks are supported:   Extract  - Extracts data from a data source  Transform Term  - Transforms the data source using expressions  Data Source Find  - Finds data in the data source matching a criteria  Data Source Join  - Joins the incoming data to data from the data source using matching compound keys  Data Source Update  - Executes either create or update commands to the datasource depending on matching compound keys  Load  - Executes commands to the datasource  Dump  - Displays the incoming dataset on the console  File Dump  - Persists the incoming dataset to disk   A typical extraction task is defined as follows:  read_my_api {\n  type =  extract \n  dataSource =  ${ my_datasource } \n  dataSource {\n    query {\n      read {\n        uri =  ${ my_datasource . base_uri } /v1/users \n      }\n    }\n  }\n}   Note  The type field within the task matches one of the predefined task types.\nAlso notice the data source details can be specified outside of the task so that it can be reused.", 
+            "title": "Tasks"
+        }, 
+        {
+            "location": "/pipelines/", 
+            "text": "Pipelines", 
+            "title": "Pipelines"
+        }, 
+        {
+            "location": "/pipelines/#pipelines", 
+            "text": "", 
+            "title": "Pipelines"
+        }, 
+        {
+            "location": "/datasets/", 
+            "text": "DataSets\n\n\nDataSets are hierarchical data structures.\nThe following is an example of a DataSet representing a person object:\n\n\n(\nperson\n,\n\n  \nfirstName\n \n-\n \nJohn\n,\n\n  \nlastName\n \n-\n \nSmith\n,\n\n  \n(\naddress\n,\n\n    \naddr1\n \n-\n \nGeorge St.\n,\n\n    \naddr2\n \n-\n \nSydney\n,\n\n    \npostcode\n \n-\n \n2000\n),\n\n  \n[\nphoneNumbers\n,\n    \nitem\n \n-\n \n98765432\n,\n    \nitem\n \n-\n \n87654321\n,\n    \nitem\n \n-\n \n76543212\n])\n\n\n\n\n\n\nThe following JSON is an identical representation of the previous DataSet.\n\n\n{\n\n  \nperson\n:\n \n{\n\n    \nfirstName\n:\n \nJohn\n,\n\n    \nlastName\n:\n \nSmith\n,\n\n    \naddress\n:\n \n{\n\n      \naddr1\n:\n \nGeorge St.\n,\n\n      \naddr2\n:\n \nSydney\n,\n\n      \npostcode\n:\n \n2000\n\n    \n},\n\n    \nphoneNumbers\n:\n \n[\n\n      \n98765432\n,\n\n      \n87654321\n,\n\n      \n76543212\n\n    \n]\n\n  \n}\n\n\n}\n\n\n\n\n\n\nPrimitive DataSet Types\n\n\nThe following\n\n\nString:\n\n\nfirstName\n \n-\n \nJohn\n\n\n\n\n\n\nNumeric:\n\n\npostcode\n \n-\n \n2000\n\n\n\n\n\n\nDate:\n\n\ndob\n \n-\n \n2000-01-01 00:00:00\n\n\n\n\n\n\nBoolean:\n\n\ncitizen\n \n-\n \ntrue\n\n\n\n\n\n\nRecord:\n\n\n(\naddress\n,\n\n  \naddr1\n \n-\n \nGeorge St.\n,\n\n  \naddr2\n \n-\n \nSydney\n,\n\n  \npostcode\n \n-\n \n2000\n)\n\n\n\n\n\n\nArray:\n\n\n[\nphoneNumbers\n,\n  \nitem\n \n-\n \n98765432\n,\n  \nitem\n \n-\n \n87654321\n,\n  \nitem\n \n-\n \n76543212\n]\n\n\n\n\n\n\nEmpty:\n\n\n()", 
+            "title": "DataSets"
+        }, 
+        {
+            "location": "/datasets/#datasets", 
+            "text": "DataSets are hierarchical data structures.\nThe following is an example of a DataSet representing a person object:  ( person , \n   firstName   -   John , \n   lastName   -   Smith , \n   ( address , \n     addr1   -   George St. , \n     addr2   -   Sydney , \n     postcode   -   2000 ), \n   [ phoneNumbers ,\n     item   -   98765432 ,\n     item   -   87654321 ,\n     item   -   76543212 ])   The following JSON is an identical representation of the previous DataSet.  { \n   person :   { \n     firstName :   John , \n     lastName :   Smith , \n     address :   { \n       addr1 :   George St. , \n       addr2 :   Sydney , \n       postcode :   2000 \n     }, \n     phoneNumbers :   [ \n       98765432 , \n       87654321 , \n       76543212 \n     ] \n   }  }", 
+            "title": "DataSets"
+        }, 
+        {
+            "location": "/datasets/#primitive-dataset-types", 
+            "text": "The following  String:  firstName   -   John   Numeric:  postcode   -   2000   Date:  dob   -   2000-01-01 00:00:00   Boolean:  citizen   -   true   Record:  ( address , \n   addr1   -   George St. , \n   addr2   -   Sydney , \n   postcode   -   2000 )   Array:  [ phoneNumbers ,\n   item   -   98765432 ,\n   item   -   87654321 ,\n   item   -   76543212 ]   Empty:  ()", 
+            "title": "Primitive DataSet Types"
+        }, 
+        {
+            "location": "/selection/", 
+            "text": "Selection\n\n\nWe will be using the following DataSet to illustrate the selection capabilities:\n\n\n(\nperson\n,\n\n  \nfirstName\n \n-\n \nJohn\n,\n\n  \nlastName\n \n-\n \nSmith\n,\n\n  \n(\naddress\n,\n\n    \naddr1\n \n-\n \nGeorge St.\n,\n\n    \naddr2\n \n-\n \nSydney\n,\n\n    \npostcode\n \n-\n \n2000\n),\n\n  \n[\nphoneNumbers\n,\n    \nitem\n \n-\n \n98765432\n,\n    \nitem\n \n-\n \n87654321\n,\n    \nitem\n \n-\n \n76543212\n])\n\n\n\n\n\n\nBy Name\n\n\nTo access the persons postcode one can use the following familiar syntax:\n\n\naddress\n.\npostcode\n\n\n\n\n\n\nThis returns the following DataSet:\n\n\npostcode\n \n-\n \n2000\n\n\n\n\n\n\n\n\nWarning\n\n\nAccessing an element that does not exist will simply return an empty DataSet:\n\n\naddress.suburb\n\n\nwill return an empty DataSet:\n\n\n( )\n\n\n\n\nBy Index\n\n\nTo access the first phone number:\n\n\nphoneNumbers\n(\n0\n)\n\n\n\n\n\n\nThis returns the following DataSet:\n\n\nitem\n \n-\n \n98765432\n\n\n\n\n\n\n\n\nWarning\n\n\nAccessing an element that does not exist will simply return an empty DataSet:\n\n\naddress.suburb\n\n\nwill return an empty DataSet:\n\n\n( )", 
+            "title": "Selection"
+        }, 
+        {
+            "location": "/selection/#selection", 
+            "text": "We will be using the following DataSet to illustrate the selection capabilities:  ( person , \n   firstName   -   John , \n   lastName   -   Smith , \n   ( address , \n     addr1   -   George St. , \n     addr2   -   Sydney , \n     postcode   -   2000 ), \n   [ phoneNumbers ,\n     item   -   98765432 ,\n     item   -   87654321 ,\n     item   -   76543212 ])", 
+            "title": "Selection"
+        }, 
+        {
+            "location": "/selection/#by-name", 
+            "text": "To access the persons postcode one can use the following familiar syntax:  address . postcode   This returns the following DataSet:  postcode   -   2000    Warning  Accessing an element that does not exist will simply return an empty DataSet:  address.suburb  will return an empty DataSet:  ( )", 
+            "title": "By Name"
+        }, 
+        {
+            "location": "/selection/#by-index", 
+            "text": "To access the first phone number:  phoneNumbers ( 0 )   This returns the following DataSet:  item   -   98765432    Warning  Accessing an element that does not exist will simply return an empty DataSet:  address.suburb  will return an empty DataSet:  ( )", 
+            "title": "By Index"
+        }, 
+        {
+            "location": "/operators/", 
+            "text": "Operators\n\n\nNumeric Operators\n\n\nThe following numeric operators are supported when both a and b are numeric values:\n\n\n\n\na + b\n - Adds a and b.\n\n\na - b\n - Substracts b from a.\n\n\na * b\n - Multiplies a and b.\n\n\na / b\n - Devides b from a.\n\n\n\n\n\n\nNote\n\n\nIf a or b isn't a number, \nEmpty\n is returned.\n\n\n\n\nThe following unary operator will negate the numeric value a:\n\n\n\n\n-a\n - Negative a.\n\n\n\n\n\n\nNote\n\n\nIf a isn't a number, \nEmpty\n is returned.\n\n\n\n\nString Operators\n\n\nThe following string operator concatenates both strings:\n\n\n\n\na + b\n - Concatenates a and b.\n\n\n\n\nBoolean Operators\n\n\n\n\na \n b\n - Returns a AND b.\n\n\na || b\n - Returns a OR b.\n\n\n\n\nRelational Operators\n\n\n\n\na \n b\n - Returns whether a is less than b.\n\n\na \n b\n - Returns whether a is greater than b.\n\n\na \n= b\n - Returns whether a is less than or equal b.\n\n\na \n= b\n - Returns whether a is greater than or equal b.", 
+            "title": "Operators"
+        }, 
+        {
+            "location": "/operators/#operators", 
+            "text": "", 
+            "title": "Operators"
+        }, 
+        {
+            "location": "/operators/#numeric-operators", 
+            "text": "The following numeric operators are supported when both a and b are numeric values:   a + b  - Adds a and b.  a - b  - Substracts b from a.  a * b  - Multiplies a and b.  a / b  - Devides b from a.    Note  If a or b isn't a number,  Empty  is returned.   The following unary operator will negate the numeric value a:   -a  - Negative a.    Note  If a isn't a number,  Empty  is returned.", 
+            "title": "Numeric Operators"
+        }, 
+        {
+            "location": "/operators/#string-operators", 
+            "text": "The following string operator concatenates both strings:   a + b  - Concatenates a and b.", 
+            "title": "String Operators"
+        }, 
+        {
+            "location": "/operators/#boolean-operators", 
+            "text": "a   b  - Returns a AND b.  a || b  - Returns a OR b.", 
+            "title": "Boolean Operators"
+        }, 
+        {
+            "location": "/operators/#relational-operators", 
+            "text": "a   b  - Returns whether a is less than b.  a   b  - Returns whether a is greater than b.  a  = b  - Returns whether a is less than or equal b.  a  = b  - Returns whether a is greater than or equal b.", 
+            "title": "Relational Operators"
+        }, 
+        {
+            "location": "/functions/", 
+            "text": "Functions\n\n\nString Functions\n\n\nThe following functions can be used:\n\n\ndef\n \nstrContains\n(\nsource\n:\n \nString\n,\n \ntarget\n:\n \nString\n)\n:\n \nBool\n\n\n\n\n\n\nReturns true if the target string can be found in the source string.\n\n\ndef\n \nsubstring\n(\nsource\n:\n \nString\n,\n \nstart\n:\n \nInt\n)\n:\n \nString\n\n\n\n\n\n\nReturns the remainder string beginning at index start.\n\n\nGeneric Functions\n\n\ndef\n \ncoalesce\n(\nxs\n:\n \nDataSet*\n)\n:\n \nDataSet\n\n\n\n\n\n\nReturns the first DataSet that is not empty.", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/functions/#functions", 
+            "text": "", 
+            "title": "Functions"
+        }, 
+        {
+            "location": "/functions/#string-functions", 
+            "text": "The following functions can be used:  def   strContains ( source :   String ,   target :   String ) :   Bool   Returns true if the target string can be found in the source string.  def   substring ( source :   String ,   start :   Int ) :   String   Returns the remainder string beginning at index start.", 
+            "title": "String Functions"
+        }, 
+        {
+            "location": "/functions/#generic-functions", 
+            "text": "def   coalesce ( xs :   DataSet* ) :   DataSet   Returns the first DataSet that is not empty.", 
+            "title": "Generic Functions"
+        }, 
+        {
+            "location": "/conditionals/", 
+            "text": "Conditionals\n\n\nThe following block demonstrates the usage of conditionals:\n\n\nif\n \n(\nc1\n)\n \na\n\n  \nelse\n \nif\n(\nc2\n)\n \nb\n\n  \n[\nelse\n \nif...\n]\n\n  \nelse\n \nc\n\n\n\n\n\n\nIf condition c1 is true, then return a.\nIf condition c1 is not true, but c2 is true, return b.\nOtherwise return c.", 
+            "title": "Conditionals"
+        }, 
+        {
+            "location": "/conditionals/#conditionals", 
+            "text": "The following block demonstrates the usage of conditionals:  if   ( c1 )   a \n   else   if ( c2 )   b \n   [ else   if... ] \n   else   c   If condition c1 is true, then return a.\nIf condition c1 is not true, but c2 is true, return b.\nOtherwise return c.", 
+            "title": "Conditionals"
+        }, 
+        {
+            "location": "/templates/", 
+            "text": "Templates\n\n\nTemplates perform string interpolation and follow the Scala syntax using the dollar operator with brackets required with more complex expressions:\n\n\n$firstName $lastName lives in a suburb with postcode ${address.postcode}.\n\n\n\n\n\n\n\n\nWarning\n\n\nThe top level expressions used within a template will always be evaluated to a string. The empty string will be used if the expression cannot be evaluated to a string.\n\n\n\n\nTemplates can be used to generate XML, JSON, SQL, CSV and in general any structure that can be thought of as a string.\n\n\nXML\n\n\nroot\n\n  \nfirstName\n$firstName\n/firstName\n\n  \nlastName\n$lastName\n/lastName\n\n\n/root\n\n\n\n\n\n\nJSON\n\n\n{\n\n  \nfirstName\n:\n \n$firstName\n,\n\n  \nlastName\n:\n \n$lastName\n,\n\n\n}\n\n\n\n\n\n\nSQL\n\n\nselect\n \n*\n \nfrom\n \nperson\n \nwhere\n \nfirstName\n \n=\n \n$firstName\n \nAND\n \nlastName\n \n=\n \n$lastName\n\n\n\n\n\n\nCSV\n\n\n$firstName,$lastName", 
+            "title": "Templates"
+        }, 
+        {
+            "location": "/templates/#templates", 
+            "text": "Templates perform string interpolation and follow the Scala syntax using the dollar operator with brackets required with more complex expressions:  $firstName $lastName lives in a suburb with postcode ${address.postcode}.    Warning  The top level expressions used within a template will always be evaluated to a string. The empty string will be used if the expression cannot be evaluated to a string.   Templates can be used to generate XML, JSON, SQL, CSV and in general any structure that can be thought of as a string.", 
+            "title": "Templates"
+        }, 
+        {
+            "location": "/templates/#xml", 
+            "text": "root \n   firstName $firstName /firstName \n   lastName $lastName /lastName  /root", 
+            "title": "XML"
+        }, 
+        {
+            "location": "/templates/#json", 
+            "text": "{ \n   firstName :   $firstName , \n   lastName :   $lastName ,  }", 
+            "title": "JSON"
+        }, 
+        {
+            "location": "/templates/#sql", 
+            "text": "select   *   from   person   where   firstName   =   $firstName   AND   lastName   =   $lastName", 
+            "title": "SQL"
+        }, 
+        {
+            "location": "/templates/#csv", 
+            "text": "$firstName,$lastName", 
+            "title": "CSV"
+        }
+    ]
+}
