@@ -1,4 +1,4 @@
-site_name: My Docs
+site_name: Data Pipes
 theme: 'material'
 
 markdown_extensions:
@@ -7,10 +7,12 @@ markdown_extensions:
 
 pages:
     - Home: index.md
-    - Configuration:
+    - PipeScript:
       - Introduction: configuration.md
       - Tasks: tasks.md
+      - Data Sources: datasources.md
       - Pipelines: pipelines.md
+    - Command Line: commandline.md
     - DataSets: datasets.md
     - Expressions:
       - Selection: selection.md
