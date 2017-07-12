@@ -15,7 +15,7 @@
     
     
       
-        <title>Pipelines - Data Pipes by Actio</title>
+        <title>Files - Data Pipes by Actio</title>
       
     
     
@@ -72,11 +72,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  PipeScript®
+                  Data Sources
                 </span>
               
             
-            Pipelines
+            Files
           
         </span>
       </div>
@@ -151,12 +151,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       PipeScript®
@@ -208,20 +206,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Pipelines" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../pipelines/" title="Pipelines" class="md-nav__link">
       Pipelines
     </a>
-    
   </li>
 
         
@@ -342,10 +331,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       Data Sources
@@ -373,11 +364,50 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../datasource_file/" title="Files" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Files
+      </label>
+    
+    <a href="./" title="Files" class="md-nav__link md-nav__link--active">
       Files
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#text-file" title="Text File" class="md-nav__link">
+    Text File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbf-file" title="DBF File" class="md-nav__link">
+    DBF File
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -436,8 +466,27 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#text-file" title="Text File" class="md-nav__link">
+    Text File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dbf-file" title="DBF File" class="md-nav__link">
+    DBF File
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -450,7 +499,60 @@
               
                 
                 
-                <h1 id="pipelines">Pipelines</h1>
+                  <h1>Files</h1>
+                
+                <p>File data sources allows one to extract the contents of files that match a regular expression. The following template is the minimum required for the use of different file types.</p>
+<div class="codehilite"><pre><span></span>dataSource {
+    type = file
+    behavior = ?
+    query {
+        read {
+            directory = &quot;/home/me&quot;
+            filenameTemplate = &quot;myfile.dat&quot;
+        }
+    }
+}
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The property behavior can be set to any of the following: {csv, raw, dbf}</p>
+</div>
+<h2 id="text-file">Text File</h2>
+<div class="codehilite"><pre><span></span>dataSource {
+    type = file
+    behavior = raw
+
+    query {
+        read {
+            directory = &quot;/home/me&quot;
+            filenameTemplate = &quot;fileName.txt&quot;
+        }
+        create {
+            directory = &quot;/home/me&quot;
+            filenameTemplate = &quot;fileName.txt&quot;
+            header = &quot;C1,C2,C3&quot;
+            line = &quot;$c1,$c2,$c3&quot;
+        }
+    }
+}
+</pre></div>
+
+
+<h2 id="dbf-file">DBF File</h2>
+<div class="codehilite"><pre><span></span>dataSource {
+    type = file
+    behavior = DBF
+    query {
+        read {
+            directory = &quot;/home/me&quot;
+            filenameTemplate = &quot;fileName.DBF&quot;
+            fields = [&quot;C1&quot;, &quot;C2&quot;, &quot;C3&quot;]
+        }
+    }
+}
+</pre></div>
                 
                   
                 
@@ -469,7 +571,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../datasources/" title="Data Sources" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../datasources/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -478,19 +580,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Data Sources
+                Introduction
               </span>
             </div>
           </a>
         
         
-          <a href="../commandline/" title="Command Line" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../datasource_ftp/" title="FTP" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Command Line
+                FTP
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

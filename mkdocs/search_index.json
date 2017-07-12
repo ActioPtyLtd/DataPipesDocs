@@ -2,38 +2,48 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to Data Pipes", 
+            "text": "Welcome to Data Pipes by Actio", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-data-pipes", 
+            "location": "/#welcome-to-data-pipes-by-actio", 
             "text": "", 
-            "title": "Welcome to Data Pipes"
+            "title": "Welcome to Data Pipes by Actio"
         }, 
         {
             "location": "/configuration/", 
-            "text": "Configuration\n\n\nAll datapipe scripts are persisted in the \nHOCON\n format.\n\n\nOverview\n\n\nThe scripts are structured into multiple blocks, namely schema, tasks, pipelines, services and startup.\n\n\nscript {\n  schema { ... }\n  tasks { ... }\n  pipelines { ... }\n  services { ... }\n  startup { ... }\n}\n\n\n\n\n\nPipelines\n\n\nPipes", 
+            "text": "PipeScript\n\n\nPipeScript is a language that defines how data retrieval, transformation and loading is coordinated and executed. All pipe scripts are persisted in the \nHOCON\n format and are composed of the following sections:\n\n\nSystem \n Operation Definitions\n\n\n\n\nGlobal Config\n\n\nSystem Endpoints for Config, Events, Instructions\n\n\n\n\nTask Definitions\n\n\n\n\nFunctional Operations on the Data Stream\n\n\n\n\nPipeline Definitions\n\n\n\n\nFlow Control between Tasks and other Pipelines\n\n\n\n\nService Definition\n\n\n\n\nDefine Bind Points to - URI and Adjectives to a pipeline. The return value from the call is the output of the pipeline.\n\n\n\n\nSchedule\n\n\n\n\nDefine a default pipeline to start associated with the specific Config.\n\n\nDefine Active scheduled pipelines \n\n\nDefine Active Services", 
             "title": "Introduction"
         }, 
         {
-            "location": "/configuration/#configuration", 
-            "text": "All datapipe scripts are persisted in the  HOCON  format.", 
-            "title": "Configuration"
+            "location": "/configuration/#pipescript", 
+            "text": "PipeScript is a language that defines how data retrieval, transformation and loading is coordinated and executed. All pipe scripts are persisted in the  HOCON  format and are composed of the following sections:", 
+            "title": "PipeScript"
         }, 
         {
-            "location": "/configuration/#overview", 
-            "text": "The scripts are structured into multiple blocks, namely schema, tasks, pipelines, services and startup.  script {\n  schema { ... }\n  tasks { ... }\n  pipelines { ... }\n  services { ... }\n  startup { ... }\n}", 
-            "title": "Overview"
+            "location": "/configuration/#system-operation-definitions", 
+            "text": "Global Config  System Endpoints for Config, Events, Instructions", 
+            "title": "System &amp; Operation Definitions"
         }, 
         {
-            "location": "/configuration/#pipelines", 
-            "text": "", 
-            "title": "Pipelines"
+            "location": "/configuration/#task-definitions", 
+            "text": "Functional Operations on the Data Stream", 
+            "title": "Task Definitions"
         }, 
         {
-            "location": "/configuration/#pipes", 
-            "text": "", 
-            "title": "Pipes"
+            "location": "/configuration/#pipeline-definitions", 
+            "text": "Flow Control between Tasks and other Pipelines", 
+            "title": "Pipeline Definitions"
+        }, 
+        {
+            "location": "/configuration/#service-definition", 
+            "text": "Define Bind Points to - URI and Adjectives to a pipeline. The return value from the call is the output of the pipeline.", 
+            "title": "Service Definition"
+        }, 
+        {
+            "location": "/configuration/#schedule", 
+            "text": "Define a default pipeline to start associated with the specific Config.  Define Active scheduled pipelines   Define Active Services", 
+            "title": "Schedule"
         }, 
         {
             "location": "/tasks/", 
@@ -46,6 +56,16 @@
             "title": "Tasks"
         }, 
         {
+            "location": "/datasources/", 
+            "text": "Introduction\n\n\nData sources define systems where data can be retrieved and manipulated. Queries defined within the data sources are ways of interacting with that system and its use depends on the communication protocol of that data source.\n\n\nData source queries that extract data out of a system will produce data sets, while manipulation of the data source data will require the data source to consume data sets.\n\n\nAll data source queries allow for templating so that incoming data can potentially be used to produce different queries.", 
+            "title": "Data Sources"
+        }, 
+        {
+            "location": "/datasources/#introduction", 
+            "text": "Data sources define systems where data can be retrieved and manipulated. Queries defined within the data sources are ways of interacting with that system and its use depends on the communication protocol of that data source.  Data source queries that extract data out of a system will produce data sets, while manipulation of the data source data will require the data source to consume data sets.  All data source queries allow for templating so that incoming data can potentially be used to produce different queries.", 
+            "title": "Introduction"
+        }, 
+        {
             "location": "/pipelines/", 
             "text": "Pipelines", 
             "title": "Pipelines"
@@ -56,9 +76,19 @@
             "title": "Pipelines"
         }, 
         {
+            "location": "/commandline/", 
+            "text": "Command Line\n\n\nData pipes runs on the JVM and can be executed as follows:\n\n\njava -cp ./config:./dpipes-assembly.jar com.actio.Main -c \nconfigName.conf\n \n[\n-p \npipeName\n]", 
+            "title": "Command Line"
+        }, 
+        {
+            "location": "/commandline/#command-line", 
+            "text": "Data pipes runs on the JVM and can be executed as follows:  java -cp ./config:./dpipes-assembly.jar com.actio.Main -c  configName.conf   [ -p  pipeName ]", 
+            "title": "Command Line"
+        }, 
+        {
             "location": "/datasets/", 
             "text": "DataSets\n\n\nDataSets are hierarchical data structures.\nThe following is an example of a DataSet representing a person object:\n\n\n(\nperson\n,\n\n  \nfirstName\n \n-\n \nJohn\n,\n\n  \nlastName\n \n-\n \nSmith\n,\n\n  \n(\naddress\n,\n\n    \naddr1\n \n-\n \nGeorge St.\n,\n\n    \naddr2\n \n-\n \nSydney\n,\n\n    \npostcode\n \n-\n \n2000\n),\n\n  \n[\nphoneNumbers\n,\n    \nitem\n \n-\n \n98765432\n,\n    \nitem\n \n-\n \n87654321\n,\n    \nitem\n \n-\n \n76543212\n])\n\n\n\n\n\n\nThe following JSON is an identical representation of the previous DataSet.\n\n\n{\n\n  \nperson\n:\n \n{\n\n    \nfirstName\n:\n \nJohn\n,\n\n    \nlastName\n:\n \nSmith\n,\n\n    \naddress\n:\n \n{\n\n      \naddr1\n:\n \nGeorge St.\n,\n\n      \naddr2\n:\n \nSydney\n,\n\n      \npostcode\n:\n \n2000\n\n    \n},\n\n    \nphoneNumbers\n:\n \n[\n\n      \n98765432\n,\n\n      \n87654321\n,\n\n      \n76543212\n\n    \n]\n\n  \n}\n\n\n}\n\n\n\n\n\n\nPrimitive DataSet Types\n\n\nThe following\n\n\nString:\n\n\nfirstName\n \n-\n \nJohn\n\n\n\n\n\n\nNumeric:\n\n\npostcode\n \n-\n \n2000\n\n\n\n\n\n\nDate:\n\n\ndob\n \n-\n \n2000-01-01 00:00:00\n\n\n\n\n\n\nBoolean:\n\n\ncitizen\n \n-\n \ntrue\n\n\n\n\n\n\nRecord:\n\n\n(\naddress\n,\n\n  \naddr1\n \n-\n \nGeorge St.\n,\n\n  \naddr2\n \n-\n \nSydney\n,\n\n  \npostcode\n \n-\n \n2000\n)\n\n\n\n\n\n\nArray:\n\n\n[\nphoneNumbers\n,\n  \nitem\n \n-\n \n98765432\n,\n  \nitem\n \n-\n \n87654321\n,\n  \nitem\n \n-\n \n76543212\n]\n\n\n\n\n\n\nEmpty:\n\n\n()", 
-            "title": "DataSets"
+            "title": "Data Sets"
         }, 
         {
             "location": "/datasets/#datasets", 
@@ -179,6 +209,56 @@
             "location": "/templates/#csv", 
             "text": "$firstName,$lastName", 
             "title": "CSV"
+        }, 
+        {
+            "location": "/datasources/", 
+            "text": "Introduction\n\n\nData sources define systems where data can be retrieved and manipulated. Queries defined within the data sources are ways of interacting with that system and its use depends on the communication protocol of that data source.\n\n\nData source queries that extract data out of a system will produce data sets, while manipulation of the data source data will require the data source to consume data sets.\n\n\nAll data source queries allow for templating so that incoming data can potentially be used to produce different queries.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/datasources/#introduction", 
+            "text": "Data sources define systems where data can be retrieved and manipulated. Queries defined within the data sources are ways of interacting with that system and its use depends on the communication protocol of that data source.  Data source queries that extract data out of a system will produce data sets, while manipulation of the data source data will require the data source to consume data sets.  All data source queries allow for templating so that incoming data can potentially be used to produce different queries.", 
+            "title": "Introduction"
+        }, 
+        {
+            "location": "/datasource_file/", 
+            "text": "File data sources allows one to extract the contents of files that match a regular expression. The following template is the minimum required for the use of different file types.\n\n\ndataSource {\n    type = file\n    behavior = ?\n    query {\n        read {\n            directory = \n/home/me\n\n            filenameTemplate = \nmyfile.dat\n\n        }\n    }\n}\n\n\n\n\n\n\n\nNote\n\n\nThe property behavior can be set to any of the following: {csv, raw, dbf}\n\n\n\n\nText File\n\n\ndataSource {\n    type = file\n    behavior = raw\n\n    query {\n        read {\n            directory = \n/home/me\n\n            filenameTemplate = \nfileName.txt\n\n        }\n        create {\n            directory = \n/home/me\n\n            filenameTemplate = \nfileName.txt\n\n            header = \nC1,C2,C3\n\n            line = \n$c1,$c2,$c3\n\n        }\n    }\n}\n\n\n\n\n\nDBF File\n\n\ndataSource {\n    type = file\n    behavior = DBF\n    query {\n        read {\n            directory = \n/home/me\n\n            filenameTemplate = \nfileName.DBF\n\n            fields = [\nC1\n, \nC2\n, \nC3\n]\n        }\n    }\n}", 
+            "title": "Files"
+        }, 
+        {
+            "location": "/datasource_file/#text-file", 
+            "text": "dataSource {\n    type = file\n    behavior = raw\n\n    query {\n        read {\n            directory =  /home/me \n            filenameTemplate =  fileName.txt \n        }\n        create {\n            directory =  /home/me \n            filenameTemplate =  fileName.txt \n            header =  C1,C2,C3 \n            line =  $c1,$c2,$c3 \n        }\n    }\n}", 
+            "title": "Text File"
+        }, 
+        {
+            "location": "/datasource_file/#dbf-file", 
+            "text": "dataSource {\n    type = file\n    behavior = DBF\n    query {\n        read {\n            directory =  /home/me \n            filenameTemplate =  fileName.DBF \n            fields = [ C1 ,  C2 ,  C3 ]\n        }\n    }\n}", 
+            "title": "DBF File"
+        }, 
+        {
+            "location": "/datasource_ftp/", 
+            "text": "dataSource {\n    type = ftp_client\n    connect = \nlocalhost\n\n    port = 1632\n    credential {\n        user = \nusername\n\n        password = \npassword\n\n    }\n    query {\n        read {\n            remotepath = \n/home/me\n\n            remote_file = \nmyfile.dat\n\n        }\n    }\n}", 
+            "title": "FTP"
+        }, 
+        {
+            "location": "/datasource_jdbc/", 
+            "text": "SQL Jdbc\n\n\ndataSource {\n        type = sql\n        connect = \njdbc:postgresql://localhost/my_db?user=me\npassword=password\n\n        query {\n            read = \nselect c1,c2 from T1\n\n            create = \ninsert into T1 values ($v1,$v2)\n\n        }\n}", 
+            "title": "JDBC"
+        }, 
+        {
+            "location": "/datasource_jdbc/#sql-jdbc", 
+            "text": "dataSource {\n        type = sql\n        connect =  jdbc:postgresql://localhost/my_db?user=me password=password \n        query {\n            read =  select c1,c2 from T1 \n            create =  insert into T1 values ($v1,$v2) \n        }\n}", 
+            "title": "SQL Jdbc"
+        }, 
+        {
+            "location": "/datasource_rest/", 
+            "text": "REST Json\n\n\ndataSource {\n    type = rest\n    credential {\n        user = \nme\n\n        password = \npassword\n\n    }\n    headers {\n        mykey1 = \nmyvalue1\n\n        mykey2 = \nmyvalue2\n\n    }\n    query {\n        read {\n            uri = \nhttps://mydomain.com/v1/users\n\n        }\n        create {\n            verb = put\n            uri = \nhttps://mydomain.com/v1/users\n\n            body = \n$body\n\n        }\n    }\n}", 
+            "title": "REST"
+        }, 
+        {
+            "location": "/datasource_rest/#rest-json", 
+            "text": "dataSource {\n    type = rest\n    credential {\n        user =  me \n        password =  password \n    }\n    headers {\n        mykey1 =  myvalue1 \n        mykey2 =  myvalue2 \n    }\n    query {\n        read {\n            uri =  https://mydomain.com/v1/users \n        }\n        create {\n            verb = put\n            uri =  https://mydomain.com/v1/users \n            body =  $body \n        }\n    }\n}", 
+            "title": "REST Json"
         }
     ]
 }

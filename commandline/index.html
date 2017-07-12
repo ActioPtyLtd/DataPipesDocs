@@ -15,7 +15,7 @@
     
     
       
-        <title>Pipelines - Data Pipes by Actio</title>
+        <title>Command Line - Data Pipes by Actio</title>
       
     
     
@@ -71,12 +71,8 @@
           
             
               
-                <span class="md-header-nav__parent">
-                  PipeScript®
-                </span>
-              
             
-            Pipelines
+            Command Line
           
         </span>
       </div>
@@ -151,12 +147,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       PipeScript®
@@ -208,20 +202,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Pipelines" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../pipelines/" title="Pipelines" class="md-nav__link">
       Pipelines
     </a>
-    
   </li>
 
         
@@ -234,11 +219,20 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../commandline/" title="Command Line" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="Command Line" class="md-nav__link md-nav__link--active">
       Command Line
     </a>
+    
   </li>
 
     
@@ -450,7 +444,10 @@
               
                 
                 
-                <h1 id="pipelines">Pipelines</h1>
+                <h1 id="command-line">Command Line</h1>
+<p>Data pipes runs on the JVM and can be executed as follows:</p>
+<div class="codehilite"><pre><span></span>java -cp ./config:./dpipes-assembly.jar com.actio.Main -c &lt;configName.conf&gt; <span class="o">[</span>-p &lt;pipeName&gt;<span class="o">]</span>
+</pre></div>
                 
                   
                 
@@ -469,7 +466,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../datasources/" title="Data Sources" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../pipelines/" title="Pipelines" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -478,19 +475,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Data Sources
+                Pipelines
               </span>
             </div>
           </a>
         
         
-          <a href="../commandline/" title="Command Line" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../datasets/" title="Data Sets" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Command Line
+                Data Sets
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -15,7 +15,7 @@
     
     
       
-        <title>Pipelines - Data Pipes by Actio</title>
+        <title>REST - Data Pipes by Actio</title>
       
     
     
@@ -72,11 +72,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  PipeScript®
+                  Data Sources
                 </span>
               
             
-            Pipelines
+            REST
           
         </span>
       </div>
@@ -151,12 +151,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       PipeScript®
@@ -208,20 +206,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Pipelines" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../pipelines/" title="Pipelines" class="md-nav__link">
       Pipelines
     </a>
-    
   </li>
 
         
@@ -342,10 +331,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       Data Sources
@@ -409,11 +400,43 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../datasource_rest/" title="REST" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        REST
+      </label>
+    
+    <a href="./" title="REST" class="md-nav__link md-nav__link--active">
       REST
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rest-json" title="REST Json" class="md-nav__link">
+    REST Json
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -436,8 +459,20 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rest-json" title="REST Json" class="md-nav__link">
+    REST Json
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -450,7 +485,31 @@
               
                 
                 
-                <h1 id="pipelines">Pipelines</h1>
+                  <h1>REST</h1>
+                
+                <h2 id="rest-json">REST Json</h2>
+<div class="codehilite"><pre><span></span>dataSource {
+    type = rest
+    credential {
+        user = &quot;me&quot;
+        password = &quot;password&quot;
+    }
+    headers {
+        mykey1 = &quot;myvalue1&quot;
+        mykey2 = &quot;myvalue2&quot;
+    }
+    query {
+        read {
+            uri = &quot;https://mydomain.com/v1/users&quot;
+        }
+        create {
+            verb = put
+            uri = &quot;https://mydomain.com/v1/users&quot;
+            body = &quot;$body&quot;
+        }
+    }
+}
+</pre></div>
                 
                   
                 
@@ -469,7 +528,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../datasources/" title="Data Sources" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../datasource_jdbc/" title="JDBC" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -478,25 +537,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Data Sources
+                JDBC
               </span>
             </div>
           </a>
         
-        
-          <a href="../commandline/" title="Command Line" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Command Line
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
