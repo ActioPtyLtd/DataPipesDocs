@@ -1,84 +1,8 @@
-# DataSources
+# Introduction
 
-## Text File
+Data sources define systems where data can be retrieved and manipulated. Queries defined within the data sources are ways of interacting with that system and its use depends on the communication protocol of that data source.
 
-```HOCON
+Data source queries that extract data out of a system will produce data sets, while manipulation of the data source data will require the data source to consume data sets.
 
-dataSource {
-    type = file
-    behavior = raw
-    directory = "/home/me"
-    query {
-        read {
-            filenameTemplate = "fileName.txt"
-        }
-        create {
-            filenameTemplate = "fileName.txt"
-            header = "C1,C2,C3"
-            line = "$c1,$c2,$c3"
-        }
-    }
-}
+All data source queries allow for templating so that incoming data can potentially be used to produce different queries.
 
-```
-
-## DBF File
-
-```HOCON
-
-dataSource {
-    type = file
-    behavior = DBF
-    directory = "/home/me"
-    query {
-        read {
-            filenameTemplate = "fileName.DBF"
-            fields = ["C1", "C2", "C3"]
-        }
-    }
-}
-
-```
-
-## REST Json
-
-```HOCON
-
-dataSource {
-    type = rest
-    credential {
-        user = "me"
-        password = "password"
-    }
-    headers {
-        mykey1 = "myvalue1"
-        mykey2 = "myvalue2"
-    }
-    query {
-        read {
-            uri = "https://mydomain.com/v1/users"
-        }
-        create {
-            verb = put
-            uri = "https://mydomain.com/v1/users"
-            body = "$body"
-        }
-    }
-}
-
-```
-
-## SQL Jdbc
-
-```HOCON
-
-dataSource {
-        type = sql
-        connect = "jdbc:postgresql://localhost/my_db?user=me&password=password"
-        query {
-            read = "select c1,c2 from T1"
-            create = "insert into T1 values ($v1,$v2)"
-        }
-}
-
-```

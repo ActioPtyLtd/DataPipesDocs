@@ -1,4 +1,4 @@
-site_name: Data Pipes
+site_name: Data Pipes by Actio
 theme: 'material'
 
 markdown_extensions:
@@ -7,16 +7,22 @@ markdown_extensions:
 
 pages:
     - Home: index.md
-    - PipeScript:
+    - PipeScript®:
       - Introduction: configuration.md
       - Tasks: tasks.md
       - Data Sources: datasources.md
       - Pipelines: pipelines.md
     - Command Line: commandline.md
-    - DataSets: datasets.md
+    - Data Sets: datasets.md
     - Expressions:
       - Selection: selection.md
       - Operators: operators.md
       - Functions: functions.md
       - Conditionals: conditionals.md
     - Templates: templates.md
+    - Data Sources: 
+      - Introduction: datasources.md
+      - Files: datasource_file.md
+      - FTP: datasource_ftp.md
+      - JDBC: datasource_jdbc.md
+      - REST: datasource_rest.md
