@@ -17,8 +17,10 @@ pages:
     - Expressions:
       - Selection: selection.md
       - Operators: operators.md
-      - Functions: functions.md
+      - Data Set Functions: dataset_functions.md
+      - Utility Functions: functions.md
       - Conditionals: conditionals.md
+      - Higher Order Functions: higher_order_functions.md
     - Templates: templates.md
     - Data Sources: 
       - Introduction: datasources.md

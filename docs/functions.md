@@ -1,4 +1,4 @@
-# Functions
+# Utility Functions
 
 ## String Functions
 
@@ -13,6 +13,17 @@ Returns true if the target string can be found in the source string.
 def substring(source: String, start: Int): String
 ```
 Returns the remainder string beginning at index start.
+
+``` Scala
+def trim(str: String): String
+```
+The trim function eliminates leading and trailing spaces.
+
+
+``` Scala
+def split(str: String, regex: String): List[String]
+```
+Splits this string around matches of the given regular expression
 
 ## Generic Functions
 
