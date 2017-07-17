@@ -77,12 +77,12 @@
         }, 
         {
             "location": "/commandline/", 
-            "text": "Command Line\n\n\nData pipes runs on the JVM and can be executed as follows:\n\n\njava -cp ./config:./dpipes-assembly.jar com.actio.Main -c \nconfigName.conf\n \n[\n-p \npipeName\n]", 
+            "text": "Command Line\n\n\nData pipes runs on the JVM and can be executed as follows:\n\n\njava -cp ./config:./dpipes-assembly.jar com.actio.Main\n    \n[\n-c \nconfigName.conf\n]\n\n    \n[\n-p \npipeName\n]\n\n    \n[\n-s\n]\n\n\n\n\n\n\n\n\n-c This is used to specify the configuration file to execute. The default is application.conf.\n\n\n-p This is used to specify which pipe to execute in the configuration file. The default pipe in the configuration is used.\n\n\n-s The parameter will run Data pipes as a long running service, listening on a predefined port.", 
             "title": "Command Line"
         }, 
         {
             "location": "/commandline/#command-line", 
-            "text": "Data pipes runs on the JVM and can be executed as follows:  java -cp ./config:./dpipes-assembly.jar com.actio.Main -c  configName.conf   [ -p  pipeName ]", 
+            "text": "Data pipes runs on the JVM and can be executed as follows:  java -cp ./config:./dpipes-assembly.jar com.actio.Main\n     [ -c  configName.conf ] \n     [ -p  pipeName ] \n     [ -s ]    -c This is used to specify the configuration file to execute. The default is application.conf.  -p This is used to specify which pipe to execute in the configuration file. The default pipe in the configuration is used.  -s The parameter will run Data pipes as a long running service, listening on a predefined port.", 
             "title": "Command Line"
         }, 
         {
@@ -151,18 +151,28 @@
             "title": "Relational Operators"
         }, 
         {
-            "location": "/functions/", 
-            "text": "Functions\n\n\nString Functions\n\n\nThe following functions can be used:\n\n\ndef\n \nstrContains\n(\nsource\n:\n \nString\n,\n \ntarget\n:\n \nString\n)\n:\n \nBool\n\n\n\n\n\n\nReturns true if the target string can be found in the source string.\n\n\ndef\n \nsubstring\n(\nsource\n:\n \nString\n,\n \nstart\n:\n \nInt\n)\n:\n \nString\n\n\n\n\n\n\nReturns the remainder string beginning at index start.\n\n\nGeneric Functions\n\n\ndef\n \ncoalesce\n(\nxs\n:\n \nDataSet*\n)\n:\n \nDataSet\n\n\n\n\n\n\nReturns the first DataSet that is not empty.", 
-            "title": "Functions"
+            "location": "/dataset_functions/", 
+            "text": "Data Set Functions\n\n\ndef\n \nisEmpty\n()\n:\n \nBool\n\n\n\n\n\n\nReturns whether the data set is empty.\n\n\n\n\nNote\n\n\nFor strings, this function returns true if the string is blank or null\n\n\n\n\ndef\n \nisDefined\n()\n:\n \nBool\n\n\n\n\n\n\nReturns whether the data set is defined, or in other words if it is not null.\n\n\ndef\n \ntoJson\n()\n:\n \nString\n\n\n\n\n\n\nReturns the data set formatted to Json.\n\n\ndef\n \ntoXml\n()\n:\n \nString\n\n\n\n\n\n\nReturns the data set formatted to Xml.", 
+            "title": "Data Set Functions"
         }, 
         {
-            "location": "/functions/#functions", 
+            "location": "/dataset_functions/#data-set-functions", 
+            "text": "def   isEmpty () :   Bool   Returns whether the data set is empty.   Note  For strings, this function returns true if the string is blank or null   def   isDefined () :   Bool   Returns whether the data set is defined, or in other words if it is not null.  def   toJson () :   String   Returns the data set formatted to Json.  def   toXml () :   String   Returns the data set formatted to Xml.", 
+            "title": "Data Set Functions"
+        }, 
+        {
+            "location": "/functions/", 
+            "text": "Utility Functions\n\n\nString Functions\n\n\nThe following functions can be used:\n\n\ndef\n \nstrContains\n(\nsource\n:\n \nString\n,\n \ntarget\n:\n \nString\n)\n:\n \nBool\n\n\n\n\n\n\nReturns true if the target string can be found in the source string.\n\n\ndef\n \nsubstring\n(\nsource\n:\n \nString\n,\n \nstart\n:\n \nInt\n)\n:\n \nString\n\n\n\n\n\n\nReturns the remainder string beginning at index start.\n\n\ndef\n \ntrim\n(\nstr\n:\n \nString\n)\n:\n \nString\n\n\n\n\n\n\nThe trim function eliminates leading and trailing spaces.\n\n\ndef\n \nsplit\n(\nstr\n:\n \nString\n,\n \nregex\n:\n \nString\n)\n:\n \nList\n[\nString\n]\n\n\n\n\n\n\nSplits this string around matches of the given regular expression\n\n\nGeneric Functions\n\n\ndef\n \ncoalesce\n(\nxs\n:\n \nDataSet*\n)\n:\n \nDataSet\n\n\n\n\n\n\nReturns the first DataSet that is not empty.", 
+            "title": "Utility Functions"
+        }, 
+        {
+            "location": "/functions/#utility-functions", 
             "text": "", 
-            "title": "Functions"
+            "title": "Utility Functions"
         }, 
         {
             "location": "/functions/#string-functions", 
-            "text": "The following functions can be used:  def   strContains ( source :   String ,   target :   String ) :   Bool   Returns true if the target string can be found in the source string.  def   substring ( source :   String ,   start :   Int ) :   String   Returns the remainder string beginning at index start.", 
+            "text": "The following functions can be used:  def   strContains ( source :   String ,   target :   String ) :   Bool   Returns true if the target string can be found in the source string.  def   substring ( source :   String ,   start :   Int ) :   String   Returns the remainder string beginning at index start.  def   trim ( str :   String ) :   String   The trim function eliminates leading and trailing spaces.  def   split ( str :   String ,   regex :   String ) :   List [ String ]   Splits this string around matches of the given regular expression", 
             "title": "String Functions"
         }, 
         {
@@ -179,6 +189,41 @@
             "location": "/conditionals/#conditionals", 
             "text": "The following block demonstrates the usage of conditionals:  if   ( c1 )   a \n   else   if ( c2 )   b \n   [ else   if... ] \n   else   c   If condition c1 is true, then return a.\nIf condition c1 is not true, but c2 is true, return b.\nOtherwise return c.", 
             "title": "Conditionals"
+        }, 
+        {
+            "location": "/higher_order_functions/", 
+            "text": "Higher Order Functions\n\n\nWe will be using the following DataSet to illustrate the selection capabilities:\n\n\n(\n\n    \nschoolName\n:\n \nKnox\n,\n\n    \n[\nparents\n,\n        \nfirstName\n \n-\n \nJohn\n,\n        \nlastName\n \n-\n \nSmith\n,\n        \n[\nchildren\n,\n            \nfirstName\n \n-\n \nMax\n,\n            \nlastName\n \n-\n \nSmith\n\n        \n]\n\n    \n]\n\n\n)\n\n\n\n\n\n\nMap\n\n\nTo get the full name of all parents:\n\n\nparents\n.\nmap\n(\np\n \n=\n \nfullName\n \n-\n \np\n.\nfirstName\n \n+\n \n \n \n+\n \np\n.\nlastName\n)\n\n\n\n\n\n\nFlat Map\n\n\nTo get the first name of all children:\n\n\nparents\n.\nflatMap\n(\np\n \n=\n \np\n.\nfirstName\n)\n\n\n\n\n\n\nFind\n\n\nTo find a parent with the last name of Smith and get the first name:\n\n\nparents\n.\nfind\n(\np\n \n=\n \np\n.\nlastName\n \n==\n \nSmith\n).\nfirstName\n\n\n\n\n\n\nGroup By\n\n\nReduce Left", 
+            "title": "Higher Order Functions"
+        }, 
+        {
+            "location": "/higher_order_functions/#higher-order-functions", 
+            "text": "We will be using the following DataSet to illustrate the selection capabilities:  ( \n     schoolName :   Knox , \n     [ parents ,\n         firstName   -   John ,\n         lastName   -   Smith ,\n         [ children ,\n             firstName   -   Max ,\n             lastName   -   Smith \n         ] \n     ]  )", 
+            "title": "Higher Order Functions"
+        }, 
+        {
+            "location": "/higher_order_functions/#map", 
+            "text": "To get the full name of all parents:  parents . map ( p   =   fullName   -   p . firstName   +       +   p . lastName )", 
+            "title": "Map"
+        }, 
+        {
+            "location": "/higher_order_functions/#flat-map", 
+            "text": "To get the first name of all children:  parents . flatMap ( p   =   p . firstName )", 
+            "title": "Flat Map"
+        }, 
+        {
+            "location": "/higher_order_functions/#find", 
+            "text": "To find a parent with the last name of Smith and get the first name:  parents . find ( p   =   p . lastName   ==   Smith ). firstName", 
+            "title": "Find"
+        }, 
+        {
+            "location": "/higher_order_functions/#group-by", 
+            "text": "", 
+            "title": "Group By"
+        }, 
+        {
+            "location": "/higher_order_functions/#reduce-left", 
+            "text": "", 
+            "title": "Reduce Left"
         }, 
         {
             "location": "/templates/", 

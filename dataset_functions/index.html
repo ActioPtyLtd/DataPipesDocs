@@ -15,7 +15,7 @@
     
     
       
-        <title>Conditionals - Data Pipes by Actio</title>
+        <title>Data Set Functions - Data Pipes by Actio</title>
       
     
     
@@ -76,7 +76,7 @@
                 </span>
               
             
-            Conditionals
+            Data Set Functions
           
         </span>
       </div>
@@ -292,11 +292,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../dataset_functions/" title="Data Set Functions" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="Data Set Functions" class="md-nav__link md-nav__link--active">
       Data Set Functions
     </a>
+    
   </li>
 
         
@@ -316,20 +325,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="./" title="Conditionals" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../conditionals/" title="Conditionals" class="md-nav__link">
       Conditionals
     </a>
-    
   </li>
 
         
@@ -474,18 +474,31 @@
               
                 
                 
-                <h1 id="conditionals">Conditionals</h1>
-<p>The following block demonstrates the usage of conditionals:</p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">c1</span><span class="o">)</span> <span class="n">a</span>
-  <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">c2</span><span class="o">)</span> <span class="n">b</span>
-  <span class="o">[</span><span class="kt">else</span> <span class="kt">if...</span><span class="o">]</span>
-  <span class="k">else</span> <span class="n">c</span>
+                <h1 id="data-set-functions">Data Set Functions</h1>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">isEmpty</span><span class="o">()</span><span class="k">:</span> <span class="kt">Bool</span>
 </pre></div>
 
 
-<p>If condition c1 is true, then return a.
-If condition c1 is not true, but c2 is true, return b.
-Otherwise return c.</p>
+<p>Returns whether the data set is empty.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For strings, this function returns true if the string is blank or null</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">isDefined</span><span class="o">()</span><span class="k">:</span> <span class="kt">Bool</span>
+</pre></div>
+
+
+<p>Returns whether the data set is defined, or in other words if it is not null.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">toJson</span><span class="o">()</span><span class="k">:</span> <span class="kt">String</span>
+</pre></div>
+
+
+<p>Returns the data set formatted to Json.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="n">toXml</span><span class="o">()</span><span class="k">:</span> <span class="kt">String</span>
+</pre></div>
+
+
+<p>Returns the data set formatted to Xml.</p>
                 
                   
                 
@@ -504,7 +517,7 @@ Otherwise return c.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../functions/" title="Utility Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../operators/" title="Operators" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -513,19 +526,19 @@ Otherwise return c.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Utility Functions
+                Operators
               </span>
             </div>
           </a>
         
         
-          <a href="../higher_order_functions/" title="Higher Order Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../functions/" title="Utility Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Higher Order Functions
+                Utility Functions
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -15,7 +15,7 @@
     
     
       
-        <title>Conditionals - Data Pipes by Actio</title>
+        <title>Higher Order Functions - Data Pipes by Actio</title>
       
     
     
@@ -76,7 +76,7 @@
                 </span>
               
             
-            Conditionals
+            Higher Order Functions
           
         </span>
       </div>
@@ -316,6 +316,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../conditionals/" title="Conditionals" class="md-nav__link">
+      Conditionals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -326,22 +338,65 @@
       
     
     
-    <a href="./" title="Conditionals" class="md-nav__link md-nav__link--active">
-      Conditionals
-    </a>
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Higher Order Functions
+      </label>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../higher_order_functions/" title="Higher Order Functions" class="md-nav__link">
+    <a href="./" title="Higher Order Functions" class="md-nav__link md-nav__link--active">
       Higher Order Functions
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#map" title="Map" class="md-nav__link">
+    Map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flat-map" title="Flat Map" class="md-nav__link">
+    Flat Map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find" title="Find" class="md-nav__link">
+    Find
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-by" title="Group By" class="md-nav__link">
+    Group By
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reduce-left" title="Reduce Left" class="md-nav__link">
+    Reduce Left
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -463,6 +518,48 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#map" title="Map" class="md-nav__link">
+    Map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flat-map" title="Flat Map" class="md-nav__link">
+    Flat Map
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find" title="Find" class="md-nav__link">
+    Find
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#group-by" title="Group By" class="md-nav__link">
+    Group By
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reduce-left" title="Reduce Left" class="md-nav__link">
+    Reduce Left
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -474,18 +571,42 @@
               
                 
                 
-                <h1 id="conditionals">Conditionals</h1>
-<p>The following block demonstrates the usage of conditionals:</p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">c1</span><span class="o">)</span> <span class="n">a</span>
-  <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">c2</span><span class="o">)</span> <span class="n">b</span>
-  <span class="o">[</span><span class="kt">else</span> <span class="kt">if...</span><span class="o">]</span>
-  <span class="k">else</span> <span class="n">c</span>
+                <h1 id="higher-order-functions">Higher Order Functions</h1>
+<p>We will be using the following DataSet to illustrate the selection capabilities:</p>
+<div class="codehilite"><pre><span></span><span class="o">(</span>
+    <span class="s">&quot;schoolName&quot;</span><span class="k">:</span> <span class="err">&quot;</span><span class="kt">Knox</span><span class="err">&quot;</span><span class="o">,</span>
+    <span class="o">[</span><span class="err">&quot;</span><span class="kt">parents</span><span class="err">&quot;</span>,
+        <span class="err">&quot;</span><span class="kt">firstName</span><span class="err">&quot;</span> <span class="kt">-&gt;</span> <span class="err">&quot;</span><span class="kt">John</span><span class="err">&quot;</span>,
+        <span class="err">&quot;</span><span class="kt">lastName</span><span class="err">&quot;</span> <span class="kt">-&gt;</span> <span class="err">&quot;</span><span class="kt">Smith</span><span class="err">&quot;</span>,
+        <span class="o">[</span><span class="err">&quot;</span><span class="kt">children</span><span class="err">&quot;</span>,
+            <span class="err">&quot;</span><span class="kt">firstName</span><span class="err">&quot;</span> <span class="kt">-&gt;</span> <span class="err">&quot;</span><span class="kt">Max</span><span class="err">&quot;</span>,
+            <span class="err">&quot;</span><span class="kt">lastName</span><span class="err">&quot;</span> <span class="kt">-&gt;</span> <span class="err">&quot;</span><span class="kt">Smith</span><span class="err">&quot;</span>
+        <span class="o">]</span>
+    <span class="o">]</span>
+<span class="o">)</span>
 </pre></div>
 
 
-<p>If condition c1 is true, then return a.
-If condition c1 is not true, but c2 is true, return b.
-Otherwise return c.</p>
+<h2 id="map">Map</h2>
+<p>To get the full name of all parents:</p>
+<div class="codehilite"><pre><span></span><span class="n">parents</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="s">&quot;fullName&quot;</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">firstName</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">lastName</span><span class="o">)</span>
+</pre></div>
+
+
+<h2 id="flat-map">Flat Map</h2>
+<p>To get the first name of all children:</p>
+<div class="codehilite"><pre><span></span><span class="n">parents</span><span class="o">.</span><span class="n">flatMap</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">firstName</span><span class="o">)</span>
+</pre></div>
+
+
+<h2 id="find">Find</h2>
+<p>To find a parent with the last name of Smith and get the first name:</p>
+<div class="codehilite"><pre><span></span><span class="n">parents</span><span class="o">.</span><span class="n">find</span><span class="o">(</span><span class="n">p</span> <span class="k">=&gt;</span> <span class="n">p</span><span class="o">.</span><span class="n">lastName</span> <span class="o">==</span> <span class="s">&quot;Smith&quot;</span><span class="o">).</span><span class="n">firstName</span>
+</pre></div>
+
+
+<h2 id="group-by">Group By</h2>
+<h2 id="reduce-left">Reduce Left</h2>
                 
                   
                 
@@ -504,7 +625,7 @@ Otherwise return c.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../functions/" title="Utility Functions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../conditionals/" title="Conditionals" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -513,19 +634,19 @@ Otherwise return c.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Utility Functions
+                Conditionals
               </span>
             </div>
           </a>
         
         
-          <a href="../higher_order_functions/" title="Higher Order Functions" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../templates/" title="Templates" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Higher Order Functions
+                Templates
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

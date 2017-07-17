@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,25 +13,25 @@
         
     <url>
      <loc>/configuration/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tasks/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/datasources/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/pipelines/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -40,7 +40,7 @@
     
     <url>
      <loc>/commandline/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -48,7 +48,7 @@
     
     <url>
      <loc>/datasets/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -57,25 +57,37 @@
         
     <url>
      <loc>/selection/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/operators/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/dataset_functions/</loc>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/functions/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/conditionals/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/higher_order_functions/</loc>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -84,7 +96,7 @@
     
     <url>
      <loc>/templates/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -93,31 +105,31 @@
         
     <url>
      <loc>/datasources/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/datasource_file/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/datasource_ftp/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/datasource_jdbc/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/datasource_rest/</loc>
-     <lastmod>2017-07-12</lastmod>
+     <lastmod>2017-07-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

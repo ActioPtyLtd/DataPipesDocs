@@ -297,8 +297,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../functions/" title="Functions" class="md-nav__link">
-      Functions
+    <a href="../dataset_functions/" title="Data Set Functions" class="md-nav__link">
+      Data Set Functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../functions/" title="Utility Functions" class="md-nav__link">
+      Utility Functions
     </a>
   </li>
 
@@ -311,6 +323,18 @@
   <li class="md-nav__item">
     <a href="../conditionals/" title="Conditionals" class="md-nav__link">
       Conditionals
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../higher_order_functions/" title="Higher Order Functions" class="md-nav__link">
+      Higher Order Functions
     </a>
   </li>
 
@@ -446,8 +470,18 @@
                 
                 <h1 id="command-line">Command Line</h1>
 <p>Data pipes runs on the JVM and can be executed as follows:</p>
-<div class="codehilite"><pre><span></span>java -cp ./config:./dpipes-assembly.jar com.actio.Main -c &lt;configName.conf&gt; <span class="o">[</span>-p &lt;pipeName&gt;<span class="o">]</span>
+<div class="codehilite"><pre><span></span>java -cp ./config:./dpipes-assembly.jar com.actio.Main
+    <span class="o">[</span>-c &lt;configName.conf&gt;<span class="o">]</span>
+    <span class="o">[</span>-p &lt;pipeName&gt;<span class="o">]</span>
+    <span class="o">[</span>-s<span class="o">]</span>
 </pre></div>
+
+
+<ul>
+<li>-c This is used to specify the configuration file to execute. The default is application.conf.</li>
+<li>-p This is used to specify which pipe to execute in the configuration file. The default pipe in the configuration is used.</li>
+<li>-s The parameter will run Data pipes as a long running service, listening on a predefined port.</li>
+</ul>
                 
                   
                 
